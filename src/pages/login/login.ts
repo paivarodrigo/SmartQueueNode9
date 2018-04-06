@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { NavController, ToastController } from "ionic-angular";
-import { DashboardPage } from '../dashboard/dashboard';
+import { DashboardPage } from "../dashboard/dashboard";
+import { SignInPage } from "../sign-in/sign-in";
+import { ForgotPasswordPage } from "../forgot-password/forgot-password";
 
 @Component({
   selector: "page-login",
@@ -39,5 +41,13 @@ export class LoginPage {
     });
 
     toast.present();
+  }
+
+  forgotPassword() {
+    this.navCtrl.push(ForgotPasswordPage);
+  }
+
+  signIn() {
+    this.navCtrl.push(SignInPage);
   }
 }

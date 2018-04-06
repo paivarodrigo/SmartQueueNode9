@@ -3,30 +3,30 @@
     <img src="assets/imgs/UmQxtnPPRUSidLkXAzI0_logo.png" class="logo" />
   </div>
   <div>
-    <form>
-      <ion-item>
-        <ion-label>
-          Email:
-        </ion-label>
-        <ion-input [value]="email" [(ngModel)]="email" type="text" name="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          Senha:
-        </ion-label>
-        <ion-input [value]="password" [(ngModel)]="password" type="password" name="password"></ion-input>
-      </ion-item>
-      <button ion-button color="positive" block (click)="login()">
-        Entrar
-      </button>
-      <div style="text-align: center;">
-        <a (click)="forgotPassword()">Esqueci minha senha</a>
-      </div>
-    </form>
-  </div>
-  <footer style="margin-top: 50%;">
-    <div style="text-align:center;" class="show-list-numbers-and-dots">
-      <span style="color:#000000;">Powered by Grupo10 &copy;</span>
+    <div>
+      <form>
+        <ion-item>
+          <ion-label>
+            Email:
+          </ion-label>
+          <ion-input [value]="email" [(ngModel)]="email" type="text" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Senha:
+          </ion-label>
+          <ion-input [value]="password" [(ngModel)]="password" type="password" name="password"></ion-input>
+        </ion-item>
+        <button ion-button color="positive" block (click)="login()" style="margin-top: 5%;">
+          Entrar
+        </button>
+      </form>
     </div>
-  </footer>
+    <div class="option">
+      <a (click)="forgotPassword()">Esqueci minha senha</a>
+    </div>
+    <div class="option">
+      <a (click)="signIn()">Você é novo? Cadastre-se</a>
+    </div>
+  </div>
 </ion-content>
