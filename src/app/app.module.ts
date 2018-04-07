@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { SignInPage } from '../pages/sign-in/sign-in';
+import { Toaster } from '../assets/utils/Toaster';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SignInPage } from '../pages/sign-in/sign-in';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Toaster
   ]
 })
 export class AppModule {}
