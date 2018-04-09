@@ -11,7 +11,10 @@
         <div class="register-form">
             <form>
                 <ion-item>
-                    <ion-input [value]="fullName" [(ngModel)]="fullName" type="text" name="fullName" placeholder="Nome Completo"></ion-input>
+                    <ion-input [value]="firstName" [(ngModel)]="firstName" type="text" name="firstName" placeholder="Nome"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input [value]="lastName" [(ngModel)]="lastName" type="text" name="lastName" placeholder="Sobrenome"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-input [value]="birthDate" [(ngModel)]="birthDate" type="date" name="birthDate" placeholder="Data de Nascimento"></ion-input>

@@ -9,7 +9,8 @@ import { CPF } from "../../assets/utils/CPF";
   templateUrl: "sign-in.html"
 })
 export class SignInPage {
-  fullName: any;
+  firstName: any;
+  lastName: any;
   birthDate: any;
   cpf: any;
   email: any;
@@ -27,14 +28,16 @@ export class SignInPage {
   }
 
   register() {
-    if (!validateFullName(this.fullName)) {
+    if (!validateFirstName(this.firstName)) {
+      this.toastCtrl.presentSimpleToast("O campo Nome é obrigatório", "bottom");
+    } else if (!validateLastName(this.lastName)) {
       this.toastCtrl.presentSimpleToast(
-        "O campo Nome Completo está incorreto",
+        "O campo Sobrenome é obrigatório",
         "bottom"
       );
     } else if (!validateBirthDate(this.birthDate)) {
       this.toastCtrl.presentSimpleToast(
-        "O campo Data de Nascimento está incorreto",
+        "O campo Data de Nascimento é obrigatório",
         "bottom"
       );
     } else if (!validateCpf(this.cpf)) {
@@ -64,29 +67,16 @@ export class SignInPage {
   }
 }
 
-function validateFullName(fullName) {
-  if (fullName != undefined) {
-    fullName = fullName.split(" ");
-    if (fullName.length > 1) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
+function validateFirstName(firstName) {
+  return firstName != undefined && firstName.length > 1;
+}
+
+function validateLastName(lastName) {
+  return lastName != undefined && lastName.length > 1;
 }
 
 function validateBirthDate(birthDate) {
-  if (birthDate != undefined) {
-    if (moment(birthDate, "YYYY-MM-DD").isValid()) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
+  return moment(birthDate, "YYYY-MM-DD").isValid();
 }
 
 function validateCpf(cpf) {
@@ -99,21 +89,13 @@ function validateEmail(email) {
 }
 
 function validatePassword(password) {
-  if (password != undefined && password.length >= 6) {
-    return true;
-  } else {
-    return false;
-  }
+  return password != undefined && password.length >= 6;
 }
 
 function validateConfirmPassword(password, confirmPassword) {
-  if (
+  return (
     password != undefined &&
     confirmPassword != undefined &&
     password == confirmPassword
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  );
 }
